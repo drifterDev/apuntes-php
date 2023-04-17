@@ -8,6 +8,12 @@
 </head>
 <body>
   <h1>Validación formularios en php</h1>
+  <?php
+    if(isset($_GET['error'])){
+      $error=$_GET['error'];
+      echo '<strong styel="color:red"> Introduce todos los datos</strong>';
+    }
+  ?>
   <form action="procesar-formulario.php" method="POST">
     <label for="nombre">Nombre: </label><br>
     <input type="text" name="nombre" required="required" pattern="[A-Za-z]+"><br><br>
@@ -18,7 +24,7 @@
     <label for="email">Email: </label><br>
     <input type="email" name="email" required="required"><br><br>
     <label for="pass">Password: </label><br>
-    <input type="password" name="pass" required="required"><br><br>
+    <input type="password" name="pass"><br><br>
     <input type="submit" value="Enviar">
   </form>
 </body>
