@@ -17,8 +17,6 @@ Aunque este repositorio es personal y no acepta contribuciones directas, aprecio
 
 Si tienes alguna pregunta o comentario sobre mi repositorio, no dudes en contactarme por correo electrónico: [maalvarezmu@unal.edu.co](mailto:maalvarezmu@unal.edu.co).
 
-¡Espero que este repositorio te sea útil en tu aprendizaje de PHP! Muchas gracias por visitarlo.
-
 ## Licencia
 
 Los códigos incluidos en este repositorio están bajo la Licencia MIT. Para más información, consulte el archivo LICENSE en la raíz del repositorio
