@@ -7,10 +7,18 @@
   <title>Validacion formularios</title>
 </head>
 <body>
+  <?php
+  if (isset($_GET['error'])){
+    $error=$_GET['error'];
+    if ($error=="Faltan valores"){
+      echo '<strong style="color:red">Introduce todos los datos requeridos</strong>';
+    }
+  }
+  ?>
   <h1>Validacion formulario en PHP</h1>
   <form action="guardar2.php" method="POST">
     <label for="nombre">Nombre:</label><br>
-    <input type="text" name="nombre" required pattern="[A-Za-z]+"><br>
+    <input type="text" name="nombre"  pattern="[A-Za-z]+"><br>
     <label for="apellidos">Apellidos:</label><br>
     <input type="text" name="apellidos" required pattern="[A-Za-z]+"><br>
     <label for="edad">Edad:</label><br>
@@ -18,7 +26,7 @@
     <label for="email">Email:</label><br>
     <input type="email" name="email" required><br>
     <label for="pass">Contraseña:</label><br>
-    <input type="password" name="pass" required><br>
+    <input type="password" name="pass" ><br>
     <input type="submit" value="Enviar"/>
   </form> 
 </body>
