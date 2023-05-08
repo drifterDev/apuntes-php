@@ -19,7 +19,7 @@ while(!feof($abrirArchivo)){
 
 
 //Escribiendo en un archivo
-fwrite($abrirArchivo, "Añadiendo un texto al archivo");
+fwrite($abrirArchivo, "Añadiendo un texto al archivo\n");
 
 //Cerrando un archivo
 fclose($abrirArchivo);
