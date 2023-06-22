@@ -1,23 +1,21 @@
-# Código, notas y archivos de PHP
+# Recursos y Apuntes de PHP
 
-¡Bienvenido/a a este repositorio de notas y archivos sobre PHP! Aquí encontrarás notas útiles para aprender y practicar esta tecnología de programación tan relevante en el desarrollo de aplicaciones web.
+Este repositorio contiene recursos y apuntes de PHP, una tecnología de programación fundamental en el desarrollo de aplicaciones web.
+Contenido del repositorio
 
-## Contenido del repositorio
+Dentro de este repositorio, encontrarás recursos disponibles para el aprendizaje y la práctica de PHP. Estos recursos incluyen:
 
-Dentro de este repositorio, encontrarás mis notas y archivos relacionados con mi aprendizaje de PHP. Estos recursos incluyen:
-
-- Archivos de código PHP que he creado para practicar y aplicar los conceptos aprendidos.
-- Notas y apuntes que he tomado durante mi estudio de PHP, con el objetivo de repasar y consolidar mis conocimientos.
+- Archivos de código PHP creados para practicar y aplicar los conceptos aprendidos.
+- Notas y apuntes tomados durante el estudio de PHP, con el objetivo de repasar y consolidar los conocimientos.
 
 ## Contribuciones
 
-Si bien este repositorio es personal y no acepta contribuciones directas, valoro cualquier sugerencia que puedas tener para mejorar su contenido. Si deseas compartir alguna sugerencia o reportar algún error, puedes crear un "issue" en el repositorio o contactarme directamente. Agradezco de antemano cualquier aporte que puedas hacer para mejorar este repositorio.
+Aprecio cualquier sugerencia para mejorar el contenido de este repositorio. Si deseas contribuir, por favor crea un "issue" en el repositorio o contáctame directamente. Valoraré tus aportes para mejorar este repositorio.
 
 ## Contacto
 
-Si tienes alguna pregunta o comentario sobre este repositorio, no dudes en contactarme por correo electrónico: [maalvarezmu@unal.edu.co](mailto:maalvarezmu@unal.edu.co).
-
-Espero que este repositorio te sea útil en tu aprendizaje de PHP. ¡Muchas gracias por visitarlo!
+Si tienes alguna pregunta o comentario sobre este repositorio, no dudes en contactarme por correo electrónico: maalvarezmu@unal.edu.co.
+Espero que este repositorio te sea útil en tu aprendizaje de PHP. Gracias por visitarlo.
 
 ## Licencia
 
