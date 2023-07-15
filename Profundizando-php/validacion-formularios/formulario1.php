@@ -1,3 +1,4 @@
+
 <!--
 Autor: Mateo Álvarez Murillo
 Fecha de creación: 2023
@@ -12,18 +13,19 @@ Para más información, consulta el archivo LICENSE en la raíz del repositorio.
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Variables super globales</title>
+  <title>Formulario</title>
 </head>
 <body>
-  <h1>Variables super globales</h1>
-  <?php
-  /**
-   * VARIABLES SUPER GLOBALES
-   */
-    echo $_SERVER['SERVER_SOFTWARE'].'<br/>';
-    echo $_SERVER['SERVER_NAME'].'<br/>';
-    echo $_SERVER['HTTP_USER_AGENT'].'<br/>';
-    echo $_SERVER['REMOTE_ADDR'].'<br/>';
-  ?>
+  <h1>Formulario de prueba</h1>
+  <form action="guardar1.php" method="POST">
+    Titulo:
+    <br>
+    <input type="text" name="titulo"><br>
+    Descripcion
+    <br>
+    <textarea name="descripcion" cols="30" rows="10"></textarea>
+    <br>
+    <input type="submit" value="Enviar"/>
+  </form>
 </body>
 </html>

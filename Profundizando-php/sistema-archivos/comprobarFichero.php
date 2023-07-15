@@ -7,12 +7,11 @@
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio. 
 
 
-/*
-  echo $_GET['nombre'];
-  echo $_GET['apellido'];
-  echo '<br/>'.var_dump($_GET);
-*/
-  echo $_POST['nombre'];
-  echo $_POST['apellido'];
-  echo '<br/>'.var_dump($_POST);
+//Metodo para comprobar la existencia de un archivo
+if (file_exists("fichero2.txt")){
+  echo "Existe";
+}else{
+  echo "No existe";
+}
+
 ?>

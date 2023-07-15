@@ -6,13 +6,11 @@
 // Este código se proporciona bajo la Licencia MIT.
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio. 
 
+$array1=["Colombia", "Informatica", "Gato"];
+echo '<tr>';
+foreach($array1 as $elemento1){
+  echo '<td>'.$elemento1.'</td>';
+}
+echo '</tr>';
 
-/*
-  echo $_GET['nombre'];
-  echo $_GET['apellido'];
-  echo '<br/>'.var_dump($_GET);
-*/
-  echo $_POST['nombre'];
-  echo $_POST['apellido'];
-  echo '<br/>'.var_dump($_POST);
 ?>
