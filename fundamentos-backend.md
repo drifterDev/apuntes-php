@@ -38,13 +38,13 @@ El client-side rendering (renderizado en el lado del cliente) es una técnica en
 
 En términos simples, cuando visitas una página web que utiliza client-side rendering, el servidor envía al navegador un archivo HTML básico junto con los archivos de código JavaScript y CSS necesarios. Luego, el navegador descarga y ejecuta esos archivos para procesar y renderizar la página final en el dispositivo del usuario.
 
+
 | Aspecto             | CSR                                 | SSR                                |
 | ------------------- | ----------------------------------- | ---------------------------------- |
 | Procesamiento       | En el navegador del cliente         | En el servidor                     |
 | Carga inicial       | Rápida                              | Más lenta                          |
 | SEO                 | Requiere técnicas adicionales       | Mejor para el SEO                  |
 | Interactividad      | Mayor                               | Menor                              |
-| Experiencia usuario | Puede verse afectada si lenta       | Visualización rápida del contenido |
 | Mantenimiento       | Mayor carga del lado del cliente    | Mayor carga del lado del servidor  |
 | Tamaño archivo      | Más pequeño                         | Más grande                         |
 | Caché contenido     | En el cliente                       | En el servidor                     |
