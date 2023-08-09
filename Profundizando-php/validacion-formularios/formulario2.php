@@ -1,4 +1,3 @@
-
 <!--
 Autor: Mateo Álvarez Murillo
 Fecha de creación: 2023
@@ -9,18 +8,20 @@ Para más información, consulta el archivo LICENSE en la raíz del repositorio.
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Validacion formularios</title>
 </head>
+
 <body>
   <?php
-  if (isset($_GET['error'])){
-    $error=$_GET['error'];
-    if ($error){
-      echo '<strong style="color:red">'.$error.'</strong>';
+  if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+    if ($error) {
+      echo '<strong style="color:red">' . $error . '</strong>';
     }
   }
   ?>
@@ -40,8 +41,9 @@ Para más información, consulta el archivo LICENSE en la raíz del repositorio.
     <label for="email">Email:</label><br>
     <input type="email" name="email"><br>
     <label for="pass">Contraseña:</label><br>
-    <input type="password" name="pass" ><br>
-    <input type="submit" value="Enviar"/>
-  </form> 
+    <input type="password" name="pass"><br>
+    <input type="submit" value="Enviar" />
+  </form>
 </body>
+
 </html>

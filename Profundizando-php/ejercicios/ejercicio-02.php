@@ -8,18 +8,17 @@
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio. 
 
 
-function validarEmail($email){
-  if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)){
+function validarEmail($email)
+{
+  if (!empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo "El Email esta bien diligenciado<br/>";
-  }else{
+  } else {
     echo "El Email esta mal escrito, compruebalo otra vez";
   }
 }
 
-if (isset($_GET['email'])){
+if (isset($_GET['email'])) {
   validarEmail($_GET['email']);
-}else{
+} else {
   echo "Envia algo por GET";
 }
-
-?>

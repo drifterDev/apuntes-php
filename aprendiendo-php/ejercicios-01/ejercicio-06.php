@@ -8,17 +8,15 @@
 
 
 echo "<table border='1'>";
-for($i = 0; $i < 11; $i++){
+for ($i = 0; $i < 11; $i++) {
   echo '<tr>';
-  for ($j=1; $j < 11; $j++){
-    if ($i == 0){
-      echo"<th>Tabla del $j</th>";
-    }else{
-      echo"<td>$i x $j = ".($i*$j).'</td>';
+  for ($j = 1; $j < 11; $j++) {
+    if ($i == 0) {
+      echo "<th>Tabla del $j</th>";
+    } else {
+      echo "<td>$i x $j = " . ($i * $j) . '</td>';
     }
   }
-  echo'</tr>';
+  echo '</tr>';
 }
-echo '</table>'
-
-?>
+echo '</table>';

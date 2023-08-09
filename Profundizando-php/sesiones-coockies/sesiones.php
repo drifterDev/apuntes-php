@@ -12,9 +12,7 @@
 session_start();
 $variable_normal = "Soy un string";
 
-$_SESSION['variable_persistente']='SESION ACTIVA';
+$_SESSION['variable_persistente'] = 'SESION ACTIVA';
 
-echo $variable_normal.'<br/>';
-echo $_SESSION['variable_persistente'].'<br/>';
-
-?>
+echo $variable_normal . '<br/>';
+echo $_SESSION['variable_persistente'] . '<br/>';

@@ -16,5 +16,3 @@ rename("fichero2.txt", "ficheroCopiado.txt");
 
 //Eliminar archivos
 unlink("ficheroCopiado.txt") or die("Error al eliminar");
-
-?>

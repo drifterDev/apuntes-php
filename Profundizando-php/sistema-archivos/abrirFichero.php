@@ -9,7 +9,7 @@
 
 //Abrir un archivo
 //Lectura y escritura
-$abrirArchivo=fopen("fichero1.txt", "a+");
+$abrirArchivo = fopen("fichero1.txt", "a+");
 
 //Lectura
 // $abrirArchivo=fopen("fichero1.txt", "r");
@@ -20,9 +20,9 @@ $abrirArchivo=fopen("fichero1.txt", "a+");
 
 //Lectura de contenido archivo
 
-while(!feof($abrirArchivo)){
-  $contenidoArchivo=fgets($abrirArchivo);
-  echo $contenidoArchivo.'</br>';
+while (!feof($abrirArchivo)) {
+  $contenidoArchivo = fgets($abrirArchivo);
+  echo $contenidoArchivo . '</br>';
 }
 
 
@@ -31,5 +31,3 @@ fwrite($abrirArchivo, "Añadiendo un texto al archivo\n");
 
 //Cerrando un archivo
 fclose($abrirArchivo);
-
-?>

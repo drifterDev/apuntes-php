@@ -17,8 +17,6 @@
 //la siguiente es basica
 setcookie("migalleta", "valor de la galleta");
 //la siguiente dura un año
-setcookie("unyear", "valor de la segunda galleta", time()+(60*60*24*365));
+setcookie("unyear", "valor de la segunda galleta", time() + (60 * 60 * 24 * 365));
 
 header('location:verCookies.php');
-
-?>
