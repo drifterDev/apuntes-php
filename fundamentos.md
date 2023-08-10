@@ -38,15 +38,18 @@ El client-side rendering (renderizado en el lado del cliente) es una técnica en
 
 En términos simples, cuando visitas una página web que utiliza client-side rendering, el servidor envía al navegador un archivo HTML básico junto con los archivos de código JavaScript y CSS necesarios. Luego, el navegador descarga y ejecuta esos archivos para procesar y renderizar la página final en el dispositivo del usuario.
 
+## Static Site Generation
 
-| Aspecto             | CSR                                 | SSR                                |
-| ------------------- | ----------------------------------- | ---------------------------------- |
-| Procesamiento       | En el navegador del cliente         | En el servidor                     |
-| Carga inicial       | Rápida                              | Más lenta                          |
-| SEO                 | Requiere técnicas adicionales       | Mejor para el SEO                  |
-| Interactividad      | Mayor                               | Menor                              |
-| Mantenimiento       | Mayor carga del lado del cliente    | Mayor carga del lado del servidor  |
-| Tamaño archivo      | Más pequeño                         | Más grande                         |
-| Caché contenido     | En el cliente                       | En el servidor                     |
-| Recursos servidor   | Menos recursos requeridos           | Más recursos requeridos            |
-| Infraestructura     | No requiere renderizado en servidor | Requiere renderizado en servidor   |
+La generación estática de páginas es una técnica web que crea páginas HTML completas de antemano, en lugar de generarlas en tiempo real. Esto mejora la velocidad de carga, ya que las páginas están listas para mostrarse sin demora. A diferencia de la generación en el servidor (SSR), donde se crea el contenido al recibir una solicitud, con la generación estática, el contenido se pre-renderiza y se almacena como archivos HTML.
+
+| Aspecto           | CSR                                 | SSR                               |
+| ----------------- | ----------------------------------- | --------------------------------- |
+| Procesamiento     | En el navegador del cliente         | En el servidor                    |
+| Carga inicial     | Rápida                              | Más lenta                         |
+| SEO               | Requiere técnicas adicionales       | Mejor para el SEO                 |
+| Interactividad    | Mayor                               | Menor                             |
+| Mantenimiento     | Mayor carga del lado del cliente    | Mayor carga del lado del servidor |
+| Tamaño archivo    | Más pequeño                         | Más grande                        |
+| Caché contenido   | En el cliente                       | En el servidor                    |
+| Recursos servidor | Menos recursos requeridos           | Más recursos requeridos           |
+| Infraestructura   | No requiere renderizado en servidor | Requiere renderizado en servidor  |
