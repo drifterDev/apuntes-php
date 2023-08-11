@@ -41,15 +41,14 @@ En términos simples, cuando visitas una página web que utiliza client-side ren
 ## Static Site Generation
 
 La generación estática de páginas es una técnica web que crea páginas HTML completas de antemano, en lugar de generarlas en tiempo real. Esto mejora la velocidad de carga, ya que las páginas están listas para mostrarse sin demora. A diferencia de la generación en el servidor (SSR), donde se crea el contenido al recibir una solicitud, con la generación estática, el contenido se pre-renderiza y se almacena como archivos HTML.
-
-| Aspecto           | CSR                                 | SSR                               |
-| ----------------- | ----------------------------------- | --------------------------------- |
-| Procesamiento     | En el navegador del cliente         | En el servidor                    |
-| Carga inicial     | Rápida                              | Más lenta                         |
-| SEO               | Requiere técnicas adicionales       | Mejor para el SEO                 |
-| Interactividad    | Mayor                               | Menor                             |
-| Mantenimiento     | Mayor carga del lado del cliente    | Mayor carga del lado del servidor |
-| Tamaño archivo    | Más pequeño                         | Más grande                        |
-| Caché contenido   | En el cliente                       | En el servidor                    |
-| Recursos servidor | Menos recursos requeridos           | Más recursos requeridos           |
-| Infraestructura   | No requiere renderizado en servidor | Requiere renderizado en servidor  |
+| Aspecto | CSR | SSR | SSG |
+| ----------------- | ----------------------------------- | --------------------------------- | --------------------------------- |
+| Procesamiento | En el navegador del cliente | En el servidor | En el momento de la compilación |
+| Carga inicial | Rápida | Más lenta | Rápida |
+| SEO | Requiere técnicas adicionales | Mejor para el SEO | Mejor para el SEO |
+| Interactividad | Mayor | Menor | Menor |
+| Mantenimiento | Mayor carga del lado del cliente | Mayor carga del lado del servidor | Menor carga en ambos lados |
+| Tamaño archivo | Más pequeño | Más grande | Pequeño |
+| Caché contenido | En el cliente | En el servidor | En el cliente |
+| Recursos servidor | Menos recursos requeridos | Más recursos requeridos | Menos recursos requeridos |
+| Infraestructura | No requiere renderizado en servidor | Requiere renderizado en servidor | No requiere renderizado en servidor |
