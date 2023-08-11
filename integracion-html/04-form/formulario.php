@@ -15,11 +15,14 @@ Para más información, consulta el archivo LICENSE en la raíz del repositorio.
 
 <body>
   <!-- Si se nesesita usar post se pone post en method -->
-  <form action="./validar.php" method="get">
+  <!-- Lo de enctype es para los formularios que tienen que enviar archivos -->
+  <form action="./validar.php" method="post" enctype="multipart/form-data">
     <label for="nombre">Nombre: </label>
     <input type="text" name="nombre" id="nombre"><br>
     <label for="edad">Edad: </label>
     <input type="number" name="edad" id="edad"><br>
+    <label for="imagen">Imagen: </label>
+    <input type="file" name="imagen" id="imagen"><br>
     <button type="submit">Enviar formulario</button>
   </form>
 </body>
