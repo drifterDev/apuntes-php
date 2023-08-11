@@ -41,6 +41,7 @@ En términos simples, cuando visitas una página web que utiliza client-side ren
 ## Static Site Generation
 
 La generación estática de páginas es una técnica web que crea páginas HTML completas de antemano, en lugar de generarlas en tiempo real. Esto mejora la velocidad de carga, ya que las páginas están listas para mostrarse sin demora. A diferencia de la generación en el servidor (SSR), donde se crea el contenido al recibir una solicitud, con la generación estática, el contenido se pre-renderiza y se almacena como archivos HTML.
+
 | Aspecto | CSR | SSR | SSG |
 | ----------------- | ----------------------------------- | --------------------------------- | --------------------------------- |
 | Procesamiento | En el navegador del cliente | En el servidor | En el momento de la compilación |

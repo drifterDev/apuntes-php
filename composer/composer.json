@@ -1,0 +1,11 @@
+{
+  "name": "mateoalvarez/text",
+  "autoload": {
+    "psr-4": {
+      "Text\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  }
+}
