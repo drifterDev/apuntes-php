@@ -13,12 +13,12 @@ function sendMail($name, $email, $subject, $body, $html = false)
 {
   //Configuración inicial
   $phpmailer = new PHPMailer();
-  $phpmailer->isSMTP();
-  $phpmailer->Host = ;
-  $phpmailer->SMTPAuth = ;
-  $phpmailer->Port = ;
-  $phpmailer->Username = ;
-  $phpmailer->Password = ;
+  // $phpmailer->isSMTP();
+  // $phpmailer->Host = ;
+  // $phpmailer->SMTPAuth = ;
+  // $phpmailer->Port = ;
+  // $phpmailer->Username = ;
+  // $phpmailer->Password = ;
 
   // Añadiendo destinatarios
   $phpmailer->setFrom('contact@empresa.com', 'Empresa falsa');
