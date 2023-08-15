@@ -6,8 +6,7 @@
 // Este código se proporciona bajo la Licencia MIT.
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio.
 
-// Es como una clase abstracta
-interface Store
+interface InterfaceStore
 {
   public function get();
 }
