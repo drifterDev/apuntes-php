@@ -1,13 +1,10 @@
-# Recursos y Apuntes de PHP y sus Frameworks
+# Aprendiendo PHP
 
-Este repositorio contiene recursos y apuntes relacionados con PHP y sus diferentes frameworks. Aquí encontrarás las notas, códigos y archivos que he creado durante los cursos que he tomado para aprender y dominar esta tecnología. Estos recursos incluyen:
-
-- Códigos PHP que he creado para practicar y aplicar los conceptos aprendidos en los diferentes frameworks.
-- Notas y apuntes que he tomado durante mis cursos y estudios sobre PHP y sus frameworks. 
+Este repositorio contiene códigos y apuntes de PHP que he creado a lo largo de mi aprendizaje del desarrollo backend, enfocados en el aprendizaje y la práctica de esta tecnología.
 
 ## Contribuciones
 
-Aprecio cualquier sugerencia o contribución para mejorar el contenido de este repositorio. Si deseas colaborar, por favor crea un "issue" en el repositorio o contáctame directamente. Valoraré y consideraré tus aportes para enriquecer este repositorio.
+Aprecio cualquier sugerencia para mejorar el contenido de este repositorio. Si deseas contribuir, por favor crea un "issue" en el repositorio o contáctame directamente. Valoraré tus aportes para mejorar este repositorio.
 
 ## Licencia
 
