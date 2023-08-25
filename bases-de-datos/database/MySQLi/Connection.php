@@ -27,9 +27,9 @@ class Connection
 
   private function  make_connection()
   {
-    $server = "localhost";
-    $database = "dbs_finanzas";
-    $username = "root";
+    $server = "";
+    $database = "";
+    $username = "";
     $password = "";
 
     $mysqli = new \mysqli($server, $username, $password, $database);

@@ -28,9 +28,9 @@ class Connection
 
   private function make_connection()
   {
-    $server = "localhost";
-    $database = "dbs_finanzas";
-    $username = "root";
+    $server = "";
+    $database = "";
+    $username = "";
     $password = "";
 
     $connection = new \PDO("mysql:host=$server;dbname=$database", $username, $password);

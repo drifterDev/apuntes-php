@@ -6,9 +6,9 @@
 // Este código se proporciona bajo la Licencia MIT.
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio. 
 
-$server = "localhost";
-$database = "dbs_finanzas";
-$username = "root";
+$server = "";
+$database = "";
+$username = "";
 $password = "";
 
 $connection = new PDO("mysql:host=$server;dbname=$database", $username, $password);
