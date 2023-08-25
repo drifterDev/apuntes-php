@@ -6,14 +6,43 @@
 // Este código se proporciona bajo la Licencia MIT.
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio. 
 
-$server = "localhost";
-$database = "dbs_finanzas";
-$username = "root";
-$password = "";
+namespace App\PDO;
 
-$connection = new PDO("mysql:host=$server;dbname=$database", $username, $password);
+class Connection
+{
+  private static $instance;
+  private $connection;
 
-$setname = $connection->prepare("SET NAMES 'utf8'");
-$setname->execute();
+  private function __construct()
+  {
+    $this->make_connection();
+  }
 
-var_dump($setname);
+  private static function get_instance()
+  {
+    if (!self::$instance instanceof self) {
+      self::$instance = new self();
+    }
+    return self::$instance;
+  }
+
+  private function make_connection()
+  {
+    $server = "localhost";
+    $database = "dbs_finanzas";
+    $username = "root";
+    $password = "";
+
+    $connection = new \PDO("mysql:host=$server;dbname=$database", $username, $password);
+
+    $setname = $connection->prepare("SET NAMES 'utf8'");
+    $setname->execute();
+
+    $this->connection = $connection;
+  }
+
+  public function get_database_instance()
+  {
+    return $this->connection;
+  }
+}
