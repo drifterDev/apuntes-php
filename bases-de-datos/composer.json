@@ -1,0 +1,18 @@
+{
+  "name": "drifterdev/bases-de-datos",
+  "description": "Proyecto del curso de conexion de PHP con bases de datos",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Mateo Álvarez",
+      "email": "maalvarezmu@unal.edu.co"
+    }
+  ],
+  "require": {}
+}
