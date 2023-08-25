@@ -6,26 +6,45 @@
 // Este código se proporciona bajo la Licencia MIT.
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio. 
 
-$server = "localhost";
-$database = "";
-$username = "";
-$password = "";
+namespace App\MySQLi;
 
-// Forma procedural
-// $mysqli = mysqli_connect($server, $username, $password, $database);
-// Comprobar conexión
-// if (!$mysqli) {
-//   die("Falló la conexión: " . mysqli_connect_error());
-// }
+class Connection
+{
+  private $connection;
+  private static $instance;
 
-// Forma orientada a objetos
-$mysqli = new mysqli($server, $username, $password, $database);
-// Comprobar conexión
-if ($mysqli->connect_errno)
-  die("Falló la conexión: {$mysqli->connect_error}");
+  private function __construct()
+  {
+    $this->make_connection();
+  }
 
-// Utilizar cualquier caracter en consultas
-$setnames = $mysqli->prepare("SET NAMES 'utf8'");
-$setnames->execute();
+  public static function getInstance()
+  {
+    if (!self::$instance instanceof self)
+      self::$instance = new self();
+    return self::$instance;
+  }
 
-var_dump($setnames);
+  private function  make_connection()
+  {
+    $server = "localhost";
+    $database = "dbs_finanzas";
+    $username = "root";
+    $password = "";
+
+    $mysqli = new \mysqli($server, $username, $password, $database);
+
+    if ($mysqli->connect_errno)
+      die("Falló la conexión: {$mysqli->connect_error}");
+
+    $setnames = $mysqli->prepare("SET NAMES 'utf8'");
+    $setnames->execute();
+
+    $this->connection = $mysqli;
+  }
+
+  public function get_database_instance()
+  {
+    return $this->connection;
+  }
+}
