@@ -32,6 +32,8 @@ class Connection
     $username = "";
     $password = "";
 
+
+
     $mysqli = new \mysqli($server, $username, $password, $database);
 
     if ($mysqli->connect_errno)

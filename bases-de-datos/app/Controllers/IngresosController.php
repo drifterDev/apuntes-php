@@ -32,13 +32,20 @@ class IngresosController
   public function store($data)
   {
     $connection = Connection::getInstance()->get_database_instance();
-    $connection->query("INSERT INTO ingresos (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES(
-      {$data['metodo_pago']},
-      {$data['tipo']},
-      '{$data['fecha']}',
-      {$data['cantidad']},
-      '{$data['descripcion']}'
-    );");
+    // Se usa stmt por convencion no es obligatorio
+    $stmt = $connection->prepare("INSERT INTO ingresos (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES(?,?,?,?,?);");
+    // Ver la documentacion para el primer parametro de bind_param
+    // Tambien estamos pasando solo una referencia de las variables por eso las podemos definir despues
+    $stmt->bind_param("iisds", $metodo_pago, $tipo, $fecha, $cantidad, $descripcion);
+
+    $metodo_pago = $data['metodo_pago'];
+    $tipo = $data['tipo'];
+    $fecha = $data['fecha'];
+    $cantidad = $data['cantidad'];
+    $descripcion = $data['descripcion'];
+
+    $stmt->execute();
+    echo "Se ha insertado {$stmt->affected_rows} filas en la base de datos";
   }
 
   /**

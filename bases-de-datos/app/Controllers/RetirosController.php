@@ -8,6 +8,8 @@
 
 namespace App\Controllers;
 
+use Database\PDO\Connection;
+
 class RetirosController
 {
   /**
@@ -27,8 +29,17 @@ class RetirosController
   /**
    * Guarda un nuevo recurso en la base de datos
    */
-  public function store()
+  public function store($data)
   {
+    $connection = Connection::getInstance()->get_database_instance();
+    $affected_rows = $connection->exec("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES(
+      {$data['metodo_pago']},
+      {$data['tipo']},
+      '{$data['fecha']}',
+      {$data['cantidad']},
+      '{$data['descripcion']}'
+    );");
+    echo "Se han insertado $affected_rows filas en la base de datos";
   }
 
   /**
