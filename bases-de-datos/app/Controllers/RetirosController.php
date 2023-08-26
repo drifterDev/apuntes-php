@@ -32,14 +32,42 @@ class RetirosController
   public function store($data)
   {
     $connection = Connection::getInstance()->get_database_instance();
-    $affected_rows = $connection->exec("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES(
-      {$data['metodo_pago']},
-      {$data['tipo']},
-      '{$data['fecha']}',
-      {$data['cantidad']},
-      '{$data['descripcion']}'
-    );");
-    echo "Se han insertado $affected_rows filas en la base de datos";
+
+    // Forma #1 sin bindparams
+    // $stmt = $connection->prepare("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
+    //   (:metodo_pago, :tipo, :fecha, :cantidad, :descripcion);");
+    // // Para usar los placeholders se pone así, pero lo hacemos un poco más sencillo en el index.php
+    // // $stmt->execute([
+    // //   ":metodo_pago"=>$data["metodo_pago"],
+    // //   ...
+    // // ]);
+    // $stmt->execute($data);
+
+    // Forma #2 con bindparams
+    // $stmt = $connection->prepare("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
+    // (:metodo_pago, :tipo, :fecha, :cantidad, :descripcion);");
+    // // esto para evitar sql injection
+    // $stmt->bindParam(":metodo_pago", $data["metodo_pago"]);
+    // $stmt->bindParam(":tipo", $data["tipo"]);
+    // $stmt->bindParam(":fecha", $data["fecha"]);
+    // $stmt->bindParam(":cantidad", $data["cantidad"]);
+    // $stmt->bindParam(":descripcion", $data["descripcion"]);
+    // $stmt->execute();
+
+    // Forma #3 con bindvalue
+    $stmt = $connection->prepare("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
+    (:metodo_pago, :tipo, :fecha, :cantidad, :descripcion);");
+    // esto para evitar sql injection
+    $stmt->bindValue(":metodo_pago", $data["metodo_pago"]);
+    $stmt->bindValue(":tipo", $data["tipo"]);
+    $stmt->bindValue(":fecha", $data["fecha"]);
+    $stmt->bindValue(":cantidad", $data["cantidad"]);
+    $stmt->bindValue(":descripcion", $data["descripcion"]);
+
+    // Esto no cambia nada gracias a bindvalue
+    $data["descripcion"] = "Se cambio el valor";
+
+    $stmt->execute();
   }
 
   /**

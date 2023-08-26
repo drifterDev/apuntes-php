@@ -24,10 +24,22 @@ require("vendor/autoload.php");
 // ]);
 
 $retiros_controller = new RetirosController();
+
+// De la siguiente manera es más fácil, porque en el metodo de retiros controller solo pasamos $data
+// pero lo hacemos de otra forma para el bindparams
+
+// $retiros_controller->store([
+//   ":metodo_pago" => MetodoPagoEnum::TarjetaCredito->value,
+//   ":tipo" => RetiroTipoEnum::Compra->value,
+//   ":fecha" => date("Y-m-d H:i:s"), //Formato para timestamp sql
+//   ":cantidad" => 3400,
+//   ":descripcion" => "Inpuestos de la compra"
+// ]);
+
 $retiros_controller->store([
   "metodo_pago" => MetodoPagoEnum::TarjetaCredito->value,
   "tipo" => RetiroTipoEnum::Compra->value,
   "fecha" => date("Y-m-d H:i:s"), //Formato para timestamp sql
-  "cantidad" => 300000,
-  "descripcion" => "Se ha comprado mucha ropa para mascotas"
+  "cantidad" => 240,
+  "descripcion" => "Compra de juguetes"
 ]);

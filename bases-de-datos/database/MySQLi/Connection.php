@@ -27,9 +27,9 @@ class Connection
 
   private function  make_connection()
   {
-    $server = "";
-    $database = "";
-    $username = "";
+    $server = "localhost";
+    $database = "dbs_finanzas";
+    $username = "root";
     $password = "";
 
 
