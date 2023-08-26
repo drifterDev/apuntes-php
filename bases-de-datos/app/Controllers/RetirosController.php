@@ -6,7 +6,7 @@
 // Este código se proporciona bajo la Licencia MIT.
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio. 
 
-namespace App\Controller;
+namespace App\Controllers;
 
 class RetirosController
 {

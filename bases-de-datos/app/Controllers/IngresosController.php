@@ -6,7 +6,9 @@
 // Este código se proporciona bajo la Licencia MIT.
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio. 
 
-namespace App\Controller;
+namespace App\Controllers;
+
+use Database\MySQLi\Connection;
 
 class IngresosController
 {
@@ -27,8 +29,16 @@ class IngresosController
   /**
    * Guarda un nuevo recurso en la base de datos
    */
-  public function store()
+  public function store($data)
   {
+    $connection = Connection::getInstance()->get_database_instance();
+    $connection->query("INSERT INTO ingresos (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES(
+      {$data['metodo_pago']},
+      {$data['tipo']},
+      '{$data['fecha']}',
+      {$data['cantidad']},
+      '{$data['descripcion']}'
+    );");
   }
 
   /**

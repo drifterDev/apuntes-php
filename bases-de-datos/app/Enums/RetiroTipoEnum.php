@@ -10,6 +10,6 @@ namespace App\Enums;
 
 enum RetiroTipoEnum: int
 {
-  case Salario = 1;
-  case Devolucion = 2;
+  case Retiro = 1;
+  case Compra = 2;
 }
