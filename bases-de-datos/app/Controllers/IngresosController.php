@@ -25,9 +25,8 @@ class IngresosController
   {
     $stmt = $this->connection->prepare("SELECT * FROM ingresos;");
     $stmt->execute();
-    while ($row = $stmt->fetch()) {
-      echo "Te fue enviado {$row['cantidad']} COP por {$row['descripcion']}\n";
-    }
+    $results = $stmt->fetchAll();
+    require("../resources/views/ingresos/index.php");
   }
 
   /**
@@ -35,6 +34,7 @@ class IngresosController
    */
   public function create()
   {
+    require("../resources/views/ingresos/create.php");
   }
 
   /**
@@ -51,6 +51,7 @@ class IngresosController
     $stmt->bindValue(":descripcion", $data["descripcion"]);
     $stmt->execute();
     echo "Se ha insertado {$stmt->affected_rows} filas en la base de datos";
+    header("location: ingresos");
   }
 
   /**
