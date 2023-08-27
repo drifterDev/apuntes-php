@@ -56,8 +56,10 @@ class IngresosController
   /**
    * Muestra un único recurso especificado
    */
-  public function show()
+  public function show($id)
   {
+    $stmt = $this->connection->prepare("SELECT * FROM ingresos WHERE id=:id");
+    $stmt->execute([":id" => $id]);
   }
 
   /**
@@ -93,16 +95,7 @@ class IngresosController
    */
   public function destroy($id)
   {
-    $this->connection->beginTransaction();
-
     $stmt = $this->connection->prepare("DELETE FROM ingresos WHERE id=:id");
     $stmt->execute([":id" => $id]);
-
-    $sure = readline("Seguro de quere eliminar el registro con id = $id? ");
-    if ($sure == "no") {
-      $this->connection->rollBack();
-    } else {
-      $this->connection->commit();
-    }
   }
 }

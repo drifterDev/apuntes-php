@@ -22,25 +22,11 @@ class RetirosController
    */
   public function index()
   {
-    // FETCH ALL
-    // $stmt = $this->connection->prepare("SELECT * FROM retiros");
-    // $stmt->execute();
-
-    // // fetchAll nos devuelve un array mixto
-    // $result = $stmt->fetchAll();
-
-    // foreach ($result as $r) {
-    //   echo "Gastaste " . $r["cantidad"] . " COP es: " . $r["descripcion"] . "\n";
-    // }
-
-    // FETCH COLUMN
     $stmt = $this->connection->prepare("SELECT cantidad, descripcion FROM retiros");
     $stmt->execute();
-    // Consultar la documentacion para el parametro de fetchall
-    // Selecciona la columna indice 0
-    $result = $stmt->fetchAll(\PDO::FETCH_COLUMN, 0);
+    $result = $stmt->fetchAll();
     foreach ($result as $r) {
-      echo "Gastaste $r COP\n";
+      echo "Gastaste " . $r["cantidad"] . " COP en: " . $r["descripcion"] . "\n";
     }
   }
 
@@ -74,7 +60,7 @@ class RetirosController
     $stmt = $this->connection->prepare("SELECT * FROM retiros WHERE id=:id");
     $stmt->execute([":id" => $id]);
     $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-    var_dump($result);
+    echo "El registro con id $id dice que te gastaste {$result['amount']} COP en {$result['description']}";
   }
 
   /**
@@ -110,14 +96,7 @@ class RetirosController
    */
   public function destroy($id)
   {
-    $this->connection->beginTransaction();
     $stmt = $this->connection->prepare("DELETE FROM retiros WHERE id=:id");
     $stmt->execute([":id" => $id]);
-    $sure = readline("Seguro de quere eliminar el registro con id = $id? ");
-    if ($sure == "no") {
-      $this->connection->rollBack();
-    } else {
-      $this->connection->commit();
-    }
   }
 }
