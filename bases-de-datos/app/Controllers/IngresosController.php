@@ -87,8 +87,23 @@ class IngresosController
   /**
    * Elimina un recurso específico de la base de datos
    */
-  public function destroy()
+  public function destroy($id)
   {
+    // Es como comenzar en backup
+    // Hay que tener cuidado con el DROP TABLE no usa el backup
+    $this->connection->beginTransaction();
+
+    $stmt = $this->connection->prepare("DELETE FROM ingresos WHERE id=:id");
+    $stmt->execute([":id" => $id]);
+
+    $sure = readline("Seguro de quere eliminar el registro con id = $id? ");
+    if ($sure == "no") {
+      // Regresa antes del backup
+      $this->connection->rollBack();
+    } else {
+      // Procede con la query
+      $this->connection->commit();
+    }
   }
 }
 

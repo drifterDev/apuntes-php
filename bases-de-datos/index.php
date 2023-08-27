@@ -54,5 +54,11 @@ require("vendor/autoload.php");
 
 // $retiros_controller = new RetirosController();
 // $retiros_controller->show(1);
+// $ingresos_controller = new IngresosController();
+// $ingresos_controller->index();
+
+
+// DESTROY DATOS
+// #######################################
 $ingresos_controller = new IngresosController();
-$ingresos_controller->index();
+$ingresos_controller->destroy(1);
