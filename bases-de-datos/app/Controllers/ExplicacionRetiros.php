@@ -10,7 +10,7 @@ namespace App\Controllers;
 
 use Database\PDO\Connection;
 
-class RetirosController
+class ExplicacionRetiros
 {
   private $connection;
   public function __construct()
@@ -56,13 +56,40 @@ class RetirosController
    */
   public function store($data)
   {
+    // Forma #1 sin bindparams
+    // $stmt = $connection->prepare("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
+    //   (:metodo_pago, :tipo, :fecha, :cantidad, :descripcion);");
+    // // Para usar los placeholders se pone así, pero lo hacemos un poco más sencillo en el index.php
+    // // $stmt->execute([
+    // //   ":metodo_pago"=>$data["metodo_pago"],
+    // //   ...
+    // // ]);
+    // $stmt->execute($data);
+
+    // Forma #2 con bindparams
+    // $stmt = $connection->prepare("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
+    // (:metodo_pago, :tipo, :fecha, :cantidad, :descripcion);");
+    // // esto para evitar sql injection
+    // $stmt->bindParam(":metodo_pago", $data["metodo_pago"]);
+    // $stmt->bindParam(":tipo", $data["tipo"]);
+    // $stmt->bindParam(":fecha", $data["fecha"]);
+    // $stmt->bindParam(":cantidad", $data["cantidad"]);
+    // $stmt->bindParam(":descripcion", $data["descripcion"]);
+    // $stmt->execute();
+
+    // Forma #3 con bindvalue
     $stmt = $this->connection->prepare("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
     (:metodo_pago, :tipo, :fecha, :cantidad, :descripcion);");
+    // esto para evitar sql injection
     $stmt->bindValue(":metodo_pago", $data["metodo_pago"]);
     $stmt->bindValue(":tipo", $data["tipo"]);
     $stmt->bindValue(":fecha", $data["fecha"]);
     $stmt->bindValue(":cantidad", $data["cantidad"]);
     $stmt->bindValue(":descripcion", $data["descripcion"]);
+
+    // Esto no cambia nada gracias a bindvalue
+    $data["descripcion"] = "Se cambio el valor";
+
     $stmt->execute();
   }
 
@@ -73,6 +100,12 @@ class RetirosController
   {
     $stmt = $this->connection->prepare("SELECT * FROM retiros WHERE id=:id");
     $stmt->execute([":id" => $id]);
+    // Con fetch se muestra una sola fila
+    // $result = $stmt->fetch();
+    // var_dump($result);
+    // echo "El registro con id $id dice que te gastaste {$result['cantidad']} COP en {$result['descripcion']}\n";
+
+    // Para evitar los valores duplicados
     $result = $stmt->fetch(\PDO::FETCH_ASSOC);
     var_dump($result);
   }
@@ -121,3 +154,12 @@ class RetirosController
     }
   }
 }
+
+
+// index: muestra la lista de todos los recursos.
+// create: muestra un formulario para ingresar un nuevo recurso. (luego manda a llamar al método store).
+// store: registra dentro de la base de datos el nuevo recurso.
+// show: muestra un recurso específico.
+// edit: muestra un formulario para editar un recurso. (luego manda a llamar al método update).
+// update: actualiza el recurso dentro de la base de datos.
+// destroy: elimina un recurso.

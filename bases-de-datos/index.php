@@ -60,5 +60,17 @@ require("vendor/autoload.php");
 
 // DESTROY DATOS
 // #######################################
-$ingresos_controller = new IngresosController();
-$ingresos_controller->destroy(1);
+// $ingresos_controller = new IngresosController();
+// $ingresos_controller->destroy(1);
+
+
+// UPDATE DATOS
+// ###################################
+$retiros_controller = new RetirosController();
+$retiros_controller->update(1, array(
+  "metodo_pago" => MetodoPagoEnum::TarjetaCredito->value,
+  "tipo" => RetiroTipoEnum::Retiro->value,
+  "fecha" => date("Y-m-d H:i:s"),
+  "cantidad" => 43020,
+  "descripcion" => "Nesesitaba comprar chocolates"
+));

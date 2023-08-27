@@ -10,38 +10,34 @@ namespace App\Controllers;
 
 use Database\PDO\Connection;
 
-class RetirosController
+class ExplicacionIngresos
 {
   private $connection;
   public function __construct()
   {
     $this->connection = Connection::getInstance()->get_database_instance();
   }
+
   /**
    * Muestra una lista de este recurso
    */
   public function index()
   {
-    // FETCH ALL
-    // $stmt = $this->connection->prepare("SELECT * FROM retiros");
-    // $stmt->execute();
-
-    // // fetchAll nos devuelve un array mixto
-    // $result = $stmt->fetchAll();
-
-    // foreach ($result as $r) {
-    //   echo "Gastaste " . $r["cantidad"] . " COP es: " . $r["descripcion"] . "\n";
-    // }
-
-    // FETCH COLUMN
-    $stmt = $this->connection->prepare("SELECT cantidad, descripcion FROM retiros");
+    $stmt = $this->connection->prepare("SELECT * FROM ingresos;");
     $stmt->execute();
-    // Consultar la documentacion para el parametro de fetchall
-    // Selecciona la columna indice 0
-    $result = $stmt->fetchAll(\PDO::FETCH_COLUMN, 0);
-    foreach ($result as $r) {
-      echo "Gastaste $r COP\n";
+
+    // FORMA 1
+    // Mientras haya filas, devuelve la fila
+    while ($row = $stmt->fetch()) {
+      echo "Te fue enviado {$row['cantidad']} COP por {$row['descripcion']}\n";
     }
+
+    // FORMA 2
+    // $stmt->bindColumn("cantidad", $cantidad);
+    // $stmt->bindColumn("descripcion", $descripcion);
+    // while ($row = $stmt->fetch()) {
+    //   echo "Te fue enviado $cantidad COP por $descripcion\n";
+    // }
   }
 
   /**
@@ -56,7 +52,7 @@ class RetirosController
    */
   public function store($data)
   {
-    $stmt = $this->connection->prepare("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
+    $stmt = $this->connection->prepare("INSERT INTO ingresos (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
     (:metodo_pago, :tipo, :fecha, :cantidad, :descripcion);");
     $stmt->bindValue(":metodo_pago", $data["metodo_pago"]);
     $stmt->bindValue(":tipo", $data["tipo"]);
@@ -64,17 +60,14 @@ class RetirosController
     $stmt->bindValue(":cantidad", $data["cantidad"]);
     $stmt->bindValue(":descripcion", $data["descripcion"]);
     $stmt->execute();
+    echo "Se ha insertado {$stmt->affected_rows} filas en la base de datos";
   }
 
   /**
    * Muestra un único recurso especificado
    */
-  public function show($id)
+  public function show()
   {
-    $stmt = $this->connection->prepare("SELECT * FROM retiros WHERE id=:id");
-    $stmt->execute([":id" => $id]);
-    $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-    var_dump($result);
   }
 
   /**
@@ -89,7 +82,7 @@ class RetirosController
    */
   public function update($id, $data)
   {
-    $stmt = $this->connection->prepare("UPDATE retiros SET
+    $stmt = $this->connection->prepare("UPDATE ingresos SET
     metodo_pago=:metodo_pago,
     tipo=:tipo,
     fecha=:fecha,
@@ -110,14 +103,29 @@ class RetirosController
    */
   public function destroy($id)
   {
+    // Es como comenzar en backup
+    // Hay que tener cuidado con el DROP TABLE no usa el backup
     $this->connection->beginTransaction();
-    $stmt = $this->connection->prepare("DELETE FROM retiros WHERE id=:id");
+
+    $stmt = $this->connection->prepare("DELETE FROM ingresos WHERE id=:id");
     $stmt->execute([":id" => $id]);
+
     $sure = readline("Seguro de quere eliminar el registro con id = $id? ");
     if ($sure == "no") {
+      // Regresa antes del backup
       $this->connection->rollBack();
     } else {
+      // Procede con la query
       $this->connection->commit();
     }
   }
 }
+
+
+// index: muestra la lista de todos los recursos.
+// create: muestra un formulario para ingresar un nuevo recurso. (luego manda a llamar al método store).
+// store: registra dentro de la base de datos el nuevo recurso.
+// show: muestra un recurso específico.
+// edit: muestra un formulario para editar un recurso. (luego manda a llamar al método update).
+// update: actualiza el recurso dentro de la base de datos.
+// destroy: elimina un recurso.
