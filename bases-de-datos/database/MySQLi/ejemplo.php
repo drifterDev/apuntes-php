@@ -18,6 +18,15 @@ $password = "";
 // if (!$mysqli) {
 //   die("Falló la conexión: " . mysqli_connect_error());
 // }
+// para hacer queries de esta forma es:
+// mysqli_query($mysqli, "SET NAMES 'utf8'");
+// $query = mysqli_query($mysqli, "SELECT * FROM ingresos");
+// while ($nota = mysqli_fetch_assoc($query)) {
+//   var_dump($nota);
+// }
+// $insert=mysqli_query($mysqli, "INSERT INTO retiros VALUES (...);");
+// var_dump($insert);
+
 
 // Forma orientada a objetos
 $mysqli = new mysqli($server, $username, $password, $database);

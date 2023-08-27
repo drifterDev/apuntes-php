@@ -8,15 +8,36 @@
 
 namespace App\Controllers;
 
-use Database\MySQLi\Connection;
+use Database\PDO\Connection;
 
 class IngresosController
 {
+  private $connection;
+  public function __construct()
+  {
+    $this->connection = Connection::getInstance()->get_database_instance();
+  }
+
   /**
    * Muestra una lista de este recurso
    */
   public function index()
   {
+    $stmt = $this->connection->prepare("SELECT * FROM ingresos;");
+    $stmt->execute();
+
+    // FORMA 1
+    // Mientras haya filas, devuelve la fila
+    while ($row = $stmt->fetch()) {
+      echo "Te fue enviado {$row['cantidad']} COP por {$row['descripcion']}\n";
+    }
+
+    // FORMA 2
+    // $stmt->bindColumn("cantidad", $cantidad);
+    // $stmt->bindColumn("descripcion", $descripcion);
+    // while ($row = $stmt->fetch()) {
+    //   echo "Te fue enviado $cantidad COP por $descripcion\n";
+    // }
   }
 
   /**
@@ -31,19 +52,13 @@ class IngresosController
    */
   public function store($data)
   {
-    $connection = Connection::getInstance()->get_database_instance();
-    // Se usa stmt por convencion no es obligatorio
-    $stmt = $connection->prepare("INSERT INTO ingresos (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES(?,?,?,?,?);");
-    // Ver la documentacion para el primer parametro de bind_param
-    // Tambien estamos pasando solo una referencia de las variables por eso las podemos definir despues
-    $stmt->bind_param("iisds", $metodo_pago, $tipo, $fecha, $cantidad, $descripcion);
-
-    $metodo_pago = $data['metodo_pago'];
-    $tipo = $data['tipo'];
-    $fecha = $data['fecha'];
-    $cantidad = $data['cantidad'];
-    $descripcion = $data['descripcion'];
-
+    $stmt = $this->connection->prepare("INSERT INTO ingresos (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
+    (:metodo_pago, :tipo, :fecha, :cantidad, :descripcion);");
+    $stmt->bindValue(":metodo_pago", $data["metodo_pago"]);
+    $stmt->bindValue(":tipo", $data["tipo"]);
+    $stmt->bindValue(":fecha", $data["fecha"]);
+    $stmt->bindValue(":cantidad", $data["cantidad"]);
+    $stmt->bindValue(":descripcion", $data["descripcion"]);
     $stmt->execute();
     echo "Se ha insertado {$stmt->affected_rows} filas en la base de datos";
   }

@@ -12,11 +12,36 @@ use Database\PDO\Connection;
 
 class RetirosController
 {
+  private $connection;
+  public function __construct()
+  {
+    $this->connection = Connection::getInstance()->get_database_instance();
+  }
   /**
    * Muestra una lista de este recurso
    */
   public function index()
   {
+    // FETCH ALL
+    // $stmt = $this->connection->prepare("SELECT * FROM retiros");
+    // $stmt->execute();
+
+    // // fetchAll nos devuelve un array mixto
+    // $result = $stmt->fetchAll();
+
+    // foreach ($result as $r) {
+    //   echo "Gastaste " . $r["cantidad"] . " COP es: " . $r["descripcion"] . "\n";
+    // }
+
+    // FETCH COLUMN
+    $stmt = $this->connection->prepare("SELECT cantidad, descripcion FROM retiros");
+    $stmt->execute();
+    // Consultar la documentacion para el parametro de fetchall
+    // Selecciona la columna indice 0
+    $result = $stmt->fetchAll(\PDO::FETCH_COLUMN, 0);
+    foreach ($result as $r) {
+      echo "Gastaste $r COP\n";
+    }
   }
 
   /**
@@ -31,8 +56,6 @@ class RetirosController
    */
   public function store($data)
   {
-    $connection = Connection::getInstance()->get_database_instance();
-
     // Forma #1 sin bindparams
     // $stmt = $connection->prepare("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
     //   (:metodo_pago, :tipo, :fecha, :cantidad, :descripcion);");
@@ -55,7 +78,7 @@ class RetirosController
     // $stmt->execute();
 
     // Forma #3 con bindvalue
-    $stmt = $connection->prepare("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
+    $stmt = $this->connection->prepare("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
     (:metodo_pago, :tipo, :fecha, :cantidad, :descripcion);");
     // esto para evitar sql injection
     $stmt->bindValue(":metodo_pago", $data["metodo_pago"]);
@@ -73,8 +96,18 @@ class RetirosController
   /**
    * Muestra un único recurso especificado
    */
-  public function show()
+  public function show($id)
   {
+    $stmt = $this->connection->prepare("SELECT * FROM retiros WHERE id=:id");
+    $stmt->execute([":id" => $id]);
+    // Con fetch se muestra una sola fila
+    // $result = $stmt->fetch();
+    // var_dump($result);
+    // echo "El registro con id $id dice que te gastaste {$result['cantidad']} COP en {$result['descripcion']}\n";
+
+    // Para evitar los valores duplicados
+    $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+    var_dump($result);
   }
 
   /**

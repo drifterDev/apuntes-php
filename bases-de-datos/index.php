@@ -6,13 +6,16 @@
 // Este código se proporciona bajo la Licencia MIT.
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio.
 
-// use App\Controllers\IngresosController;
+use App\Controllers\IngresosController;
 use App\Controllers\RetirosController;
-// use App\Enums\IngresoTipoEnum;
+use App\Enums\IngresoTipoEnum;
 use App\Enums\MetodoPagoEnum;
 use App\Enums\RetiroTipoEnum;
 
 require("vendor/autoload.php");
+
+// INSERTAR DATOS
+// ###################################
 
 // $ingresos_controller = new IngresosController();
 // $ingresos_controller->store([
@@ -23,7 +26,7 @@ require("vendor/autoload.php");
 //   "descripcion" => "Devolucion de una compra fallida"
 // ]);
 
-$retiros_controller = new RetirosController();
+// $retiros_controller = new RetirosController();
 
 // De la siguiente manera es más fácil, porque en el metodo de retiros controller solo pasamos $data
 // pero lo hacemos de otra forma para el bindparams
@@ -36,10 +39,20 @@ $retiros_controller = new RetirosController();
 //   ":descripcion" => "Inpuestos de la compra"
 // ]);
 
-$retiros_controller->store([
-  "metodo_pago" => MetodoPagoEnum::TarjetaCredito->value,
-  "tipo" => RetiroTipoEnum::Compra->value,
-  "fecha" => date("Y-m-d H:i:s"), //Formato para timestamp sql
-  "cantidad" => 240,
-  "descripcion" => "Compra de juguetes"
-]);
+// $retiros_controller->store([
+//   "metodo_pago" => MetodoPagoEnum::TarjetaCredito->value,
+//   "tipo" => RetiroTipoEnum::Compra->value,
+//   "fecha" => date("Y-m-d H:i:s"), //Formato para timestamp sql
+//   "cantidad" => 240,
+//   "descripcion" => "Compra de juguetes"
+// ]);
+
+// CONSULTAR DATOS
+// ###################################
+// $retiros_controller = new RetirosController();
+// $retiros_controller->index();
+
+// $retiros_controller = new RetirosController();
+// $retiros_controller->show(1);
+$ingresos_controller = new IngresosController();
+$ingresos_controller->index();
