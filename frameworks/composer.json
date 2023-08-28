@@ -1,0 +1,21 @@
+{
+  "name": "drifterdev/framework",
+  "description": "Proyecto básico",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/"
+    },
+    "files": [
+      "app/helpers.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "Mateo Álvarez",
+      "email": "maalvarezmu@unal.edu.co"
+    }
+  ],
+  "require": {}
+}
