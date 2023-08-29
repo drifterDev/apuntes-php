@@ -1,5 +1,11 @@
 <?php
 
+// Autor: Mateo Álvarez Murillo
+// Fecha de creación: 2023
+
+// Este código se proporciona bajo la Licencia MIT.
+// Para más información, consulta el archivo LICENSE en la raíz del repositorio.
+
 $method = strtoupper($_SERVER['REQUEST_METHOD']);
 
 $token = "5d0937455b6744.68357201";

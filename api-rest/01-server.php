@@ -42,29 +42,29 @@
 // curl http://localhost:8001 -X 'POST' -H 'X-Client-Id: 1' -H 'X-Secret: secreto'
 // 5d0937455b6744.68357201
 // curl http://localhost:8000/books -H 'X-Token: 5d0937455b6744.68357201'
-header('Content-Type: application/json');
+// header('Content-Type: application/json');
 
-if (!array_key_exists('HTTP_X_TOKEN', $_SERVER)) {
-  die;
-}
+// if (!array_key_exists('HTTP_X_TOKEN', $_SERVER)) {
+//   die;
+// }
 
-$url = 'http://localhost:8001';
+// $url = 'http://localhost:8001';
 
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-  "X-Token: {$_SERVER['HTTP_X_TOKEN']}",
-]);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$ret = curl_exec($ch);
+// $ch = curl_init($url);
+// curl_setopt($ch, CURLOPT_HTTPHEADER, [
+//   "X-Token: {$_SERVER['HTTP_X_TOKEN']}",
+// ]);
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// $ret = curl_exec($ch);
 
-if (curl_errno($ch) != 0) {
-  die(curl_error($ch));
-}
+// if (curl_errno($ch) != 0) {
+//   die(curl_error($ch));
+// }
 
-if ($ret !== 'true') {
-  http_response_code(403);
-  die;
-}
+// if ($ret !== 'true') {
+//   http_response_code(403);
+//   die;
+// }
 
 $books = [
   1 => [
@@ -95,6 +95,7 @@ $allowedResourceTypes = [
 $resourceType = $_GET['type'];
 
 if (!in_array($resourceType, $allowedResourceTypes)) {
+  http_response_code(400);
   die;
 }
 
@@ -111,6 +112,8 @@ switch (strtoupper($_SERVER['REQUEST_METHOD'])) {
       echo json_encode($books);
     } else if (array_key_exists($resourceId, $books)) {
       echo json_encode($books[$resourceId]);
+    } else {
+      http_response_code(404);
     }
     break;
   case 'POST':

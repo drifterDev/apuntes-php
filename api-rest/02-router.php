@@ -15,11 +15,11 @@ if (preg_match('/\/([^\/]+)\/([^\/]+)/', $_SERVER["REQUEST_URI"], $matches)) {
   $_GET['type'] = $matches[1];
   $_GET['id'] = $matches[2];
   error_log(print_r($matches, 1));
-  require 'server.php';
+  require '01-server.php';
 } else if (preg_match('/\/([^\/]+)\/?/', $_SERVER["REQUEST_URI"], $matches)) {
   $_GET['type'] = $matches[1];
   error_log(print_r($matches, 1));
-  require 'server.php';
+  require '01-server.php';
 } else {
   error_log('No matches');
   http_response_code(404);
