@@ -61,10 +61,21 @@ switch (strtoupper($_SERVER['REQUEST_METHOD'])) {
     echo json_encode($books);
     break;
   case 'PUT':
-    # code...
+    // Valida que el recurso exista
+    if (!empty($resourceId) && !in_array($resourceId, $books)) {
+      $json = file_get_contents('php://input');
+      $books[$resourceId] = json_decode($json, true);
+      // Retorna el elemento editado
+      echo json_encode($books[$resourceId]);
+    }
     break;
   case 'DELETE':
-    # code...
+    // Valida que el recurso exista
+    if (!empty($resourceId) && !in_array($resourceId, $books)) {
+      // Se elimina el recurso
+      unset($books[$resourceId]);
+      echo json_encode($books);
+    }
     break;
 
   default:
