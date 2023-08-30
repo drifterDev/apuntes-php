@@ -69,17 +69,17 @@
 $books = [
   1 => [
     'titulo' => 'El imperio final',
-    'id_author' => 1,
+    'id_autor' => 1,
     'id_genero' => 1,
   ],
   2 => [
     'titulo' => 'El bestiario de Axlin',
-    'id_author' => 2,
+    'id_autor' => 2,
     'id_genero' => 2,
   ],
   3 => [
     'titulo' => 'El hijo de neptuno',
-    'id_author' => 3,
+    'id_autor' => 3,
     'id_genero' => 1,
   ]
 ];

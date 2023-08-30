@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API REST</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <table id="booksTable">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Author</th>
+          <th>Genero</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+      <input type="button" value="Cargar libros" id="loadBooks" />
+      <div class="hidden" id="messages">
+        <p></p>
+      </div>
+      <div class="hidden" id="bookForm">
+        <hr />
+        <table>
+          <tr>
+            <td><label for="bookTitle">Título:</label></td>
+            <td><input type="text" name="bookTitle" id="bookTitle" /></td>
+          </tr>
+          <tr>
+            <td><label for="bookAuthorId">Autor:</label></td>
+            <td><input type="text" name="bookAuthorId" id="bookAuthorId" /></td>
+          </tr>
+          <tr>
+            <td><label for="authorGenreId">Genero del libro:</label></td>
+            <td>
+              <input type="text" name="authorGenreId" id="authorGenreId" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="button" value="Guardar" id="bookSave" />
+            </td>
+          </tr>
+        </table>
+      </div>
+    </table>
+  </body>
+  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
+  <script src="./script.js"></script>
+</html>
