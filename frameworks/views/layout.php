@@ -16,7 +16,21 @@ Para más información, consulta el archivo LICENSE en la raíz del repositorio.
 </head>
 
 <body>
-  <nav class="p-10 w-full bg-blue-100 text-xl">Introducción a Frameworks PHP</nav>
+  <nav class="p-10 w-full bg-blue-100">
+    <h1 class=" text-xl pb-5">Introducción a Frameworks PHP</h1>
+    <ul class="flex">
+      <li class="pointer mr-5 border-b-5 hover:bg-blue-200 p-2">
+        <a href="/home">Home</a>
+      </li>
+      <li class="pointer mr-5 border-b-5 hover:bg-blue-200 p-2">
+        <a href="/contacts">Contacts</a>
+      </li>
+      <li class="pointer mr-5 border-b-5 hover:bg-blue-200 p-2">
+        <a href="/services">Services</a>
+      </li>
+    </ul>
+  </nav>
+
   <div class="container">
     <div class="p-10 flex flex-col">
       <div class=" border-2 border-black p-5">

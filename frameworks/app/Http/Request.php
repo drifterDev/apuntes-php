@@ -8,6 +8,8 @@
 
 namespace App\Http;
 
+use Exception;
+
 class Request
 {
   protected $segments = [];
@@ -56,7 +58,14 @@ class Request
       new $controller,
       $method
     ]);
-
-    $response->send();
+    try {
+      if ($response instanceof Response) {
+        $response->send();
+      } else {
+        throw new \Exception("Error al procesar la peticion");
+      }
+    } catch (\Throwable $th) {
+      echo "Details: {$th->getMessage()}";
+    }
   }
 }
