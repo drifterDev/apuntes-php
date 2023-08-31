@@ -2,12 +2,16 @@
     "name": "drifterdev/librerias",
     "type": "project",
     "require": {
-        "spipu/html2pdf": "^5.2"
+        "spipu/html2pdf": "^5.2",
+        "stefangabos/zebra_pagination": "dev-master",
+        "masterexploder/phpthumb": "^2.1"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "PDF\\": "pdf/"
+            "PDF\\": "pdf/",
+            "Pages\\": "pagination/",
+            "Images\\": "images/"
         }
     },
     "authors": [
