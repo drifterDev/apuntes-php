@@ -6,6 +6,7 @@
 // Este código se proporciona bajo la Licencia MIT.
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio.
 
+// php -S localhost:8001
 $matches = [];
 if (preg_match('/\/([^\/]+)\/([^\/]+)/', $_SERVER["REQUEST_URI"], $matches)) {
   $_GET['type'] = $matches[1];

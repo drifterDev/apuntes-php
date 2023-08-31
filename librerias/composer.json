@@ -1,0 +1,19 @@
+{
+    "name": "drifterdev/librerias",
+    "type": "project",
+    "require": {
+        "spipu/html2pdf": "^5.2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "PDF\\": "pdf/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mateo Álvarez",
+            "email": "maalvarezmu@unal.edu.co"
+        }
+    ]
+}

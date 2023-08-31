@@ -8,45 +8,88 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <table id="booksTable">
-      <thead>
-        <tr>
-          <th>Título</th>
-          <th>Author</th>
-          <th>Genero</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-      <input type="button" value="Cargar libros" id="loadBooks" />
-      <div class="hidden" id="messages">
-        <p></p>
-      </div>
-      <div class="hidden" id="bookForm">
-        <hr />
-        <table>
-          <tr>
-            <td><label for="bookTitle">Título:</label></td>
-            <td><input type="text" name="bookTitle" id="bookTitle" /></td>
-          </tr>
-          <tr>
-            <td><label for="bookAuthorId">Autor:</label></td>
-            <td><input type="text" name="bookAuthorId" id="bookAuthorId" /></td>
-          </tr>
-          <tr>
-            <td><label for="authorGenreId">Genero del libro:</label></td>
-            <td>
-              <input type="text" name="authorGenreId" id="authorGenreId" />
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <input type="button" value="Guardar" id="bookSave" />
-            </td>
-          </tr>
+    <h1
+      class="w-full bg-gray-100 py-5 border-b-2 border-gray-200 font-bold text-center text-xl text-gray-500"
+    >
+      API REST
+    </h1>
+    <main class="container p-5 flex justify-center">
+      <div class="flex flex-col items-center mr-10">
+        <div class="flex flex-col items-center">
+          <div class="bg-gray-100 mb-3 flex p-5" id="messages">
+            <span class="mr-2"> Estado: </span>
+            <p>Libros sin cargar</p>
+          </div>
+        </div>
+        <table id="booksTable" class="border-2 border-black mt-5 p-5">
+          <thead>
+            <tr>
+              <th class="border-r-2 border-black p-2">Título</th>
+              <th class="border-r-2 border-black p-2">Author</th>
+              <th class="p-2">Genero</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
         </table>
+        <input
+          class="my-5 bg-blue-100 p-2 cursor-pointer rounded-lg border-2 border-blue-200"
+          type="button"
+          value="Cargar libros"
+          id="loadBooks"
+        />
       </div>
-    </table>
+      <div class="flex flex-col items-center">
+        <div id="bookForm">
+          <table class="my-3">
+            <h2 class="text-center text-xl font-semibold my-3">
+              Formulario para crear un nuevo recurso
+            </h2>
+            <tr>
+              <td><label for="bookTitle">Título:</label></td>
+              <td>
+                <input
+                  class="p-2 border-2 border-gray-200 rounded mb-2 ml-2"
+                  type="text"
+                  name="bookTitle"
+                  id="bookTitle"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="bookAuthorId">Autor:</label></td>
+              <td>
+                <input
+                  class="p-2 border-2 border-gray-200 rounded mb-2 ml-2"
+                  type="text"
+                  name="bookAuthorId"
+                  id="bookAuthorId"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="authorGenreId">Genero del libro:</label></td>
+              <td>
+                <input
+                  class="p-2 border-2 border-gray-200 rounded mb-2 ml-2"
+                  type="text"
+                  name="authorGenreId"
+                  id="authorGenreId"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2"></td>
+            </tr>
+          </table>
+        </div>
+        <input
+          class="bg-blue-100 p-2 cursor-pointer rounded-lg border-2 border-blue-200"
+          type="button"
+          value="Guardar"
+          id="bookSave"
+        />
+      </div>
+    </main>
   </body>
-  <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
   <script src="./script.js"></script>
 </html>

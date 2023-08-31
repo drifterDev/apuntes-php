@@ -13,10 +13,10 @@ let template = "";
 
 function addBook(data) {
   template += `
-            <tr>
-              <td>${data.titulo}</td>
-              <td>${data.autor}</td>
-              <td>${data.genero}</td>
+            <tr class="border-y-2 border-black">
+              <td class="border-r-2 border-black p-2">${data.titulo}</td>
+              <td class="border-r-2 border-black p-2">${data.autor}</td>
+              <td class="border-r-2 border-black p-2">${data.genero}</td>
             </tr>
             `;
   body.innerHTML = template;
@@ -30,7 +30,8 @@ function loadBooks() {
       for (let d in data) {
         addBook(data[d]);
       }
-      messages.children[0].innerHTML = "Libros cargados";
+      messages.children[1].innerHTML = "Libros cargados";
+      messages.classList.toggle("bg-green-100");
     })
     .catch(function (error) {
       console.log(error);
@@ -39,9 +40,7 @@ function loadBooks() {
 
 load.addEventListener("click", function () {
   if (!cargo) {
-    messages.children[0].innerHTML = "Cargando libros...";
-    messages.classList.toggle("hidden");
-    messages.classList.toggle("block");
+    messages.children[1].innerHTML = "Cargando libros...";
     loadBooks();
     cargo = true;
   }
@@ -53,7 +52,8 @@ save.addEventListener("click", () => {
     autor: autor.value,
     genero: genero.value,
   };
-  messages.children[0].innerHTML = "Guardando libro...";
+  messages.classList.toggle("bg-green-100");
+  messages.children[1].innerHTML = "Guardando libro...";
   axios
     .post(url, JSON.stringify(newBook), {
       headers: {
@@ -63,7 +63,8 @@ save.addEventListener("click", () => {
     .then(function (response) {
       console.log("Respuesta del servidor:", response.data);
       addBook(newBook);
-      messages.children[0].innerHTML = "Libro guardado";
+      messages.children[1].innerHTML = "Libro guardado";
+      messages.classList.toggle("bg-green-100");
     })
     .catch(function (error) {
       console.error("Error al realizar la solicitud:", error);

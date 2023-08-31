@@ -21,6 +21,16 @@ $books = [
     'titulo' => 'El hijo de neptuno',
     'autor' => 'Rick Riordan',
     'genero' => 'Mitologia',
+  ],
+  4 => [
+    'titulo' => 'El secreto de Xein',
+    'autor' => 'Laura Gallego',
+    'genero' => 'Aventura',
+  ],
+  5 => [
+    'titulo' => 'La misión de Rox',
+    'autor' => 'Laura Gallego',
+    'genero' => 'Aventura',
   ]
 ];
 
