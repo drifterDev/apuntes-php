@@ -18,8 +18,9 @@ class ModeloBase
     $this->db = Database::conectar();
   }
 
-  public function conseguirTodos()
+  public function conseguirTodos($tabla)
   {
-    return "Sacando todos los usuarios";
+    $query = $this->db->query("SELECT * FROM $tabla");
+    return $query;
   }
 }

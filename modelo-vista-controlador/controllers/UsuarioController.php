@@ -12,12 +12,12 @@ use Models\Usuario;
 
 class UsuarioController
 {
-  public function mostrar()
+  public function listar()
   {
     require_once 'models/Usuario.php';
     $usuario = new Usuario();
-    $usuarios = $usuario->conseguirTodos();
-    require_once 'views/usuarios/mostrarTodos.php';
+    $usuarios = $usuario->conseguirTodos('usuarios');
+    require_once 'views/usuarios/listar.php';
   }
 
   public function crear()

@@ -25,3 +25,6 @@ if (isset($_GET['controller'])) {
 } else {
   echo "Error 404 not found";
 }
+
+// http://localhost:8000/?controller=Usuario&action=listar
+// http://localhost:8000/?controller=Nota&action=listar

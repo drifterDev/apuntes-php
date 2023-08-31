@@ -22,3 +22,96 @@ CREATE TABLE
         fecha DATE NOT NULL,
         CONSTRAINT fk_nota_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
     ) ENGINE = InnoDb;
+
+-- Insertar usuarios
+
+INSERT INTO
+    usuarios (
+        nombre,
+        apellidos,
+        email,
+        password,
+        fecha
+    )
+VALUES (
+        'Juan',
+        'Pérez',
+        'juan@example.com',
+        'clave123',
+        '1990-05-15'
+    ), (
+        'María',
+        'López',
+        'maria@example.com',
+        'pass456',
+        '1988-10-20'
+    ), (
+        'Carlos',
+        'González',
+        'carlos@example.com',
+        'secret789',
+        '1995-03-08'
+    );
+
+-- Insertar notas para el usuario con ID 1
+
+INSERT INTO
+    notas (
+        usuario_id,
+        titulo,
+        descripcion,
+        fecha
+    )
+VALUES (
+        1,
+        'Compras',
+        'Leche, huevos, pan',
+        '2023-08-30'
+    ), (
+        1,
+        'Tareas',
+        'Hacer la tarea de matemáticas',
+        '2023-08-29'
+    );
+
+-- Insertar notas para el usuario con ID 2
+
+INSERT INTO
+    notas (
+        usuario_id,
+        titulo,
+        descripcion,
+        fecha
+    )
+VALUES (
+        2,
+        'Lista de películas',
+        'Ver las películas recomendadas',
+        '2023-08-28'
+    ), (
+        2,
+        'Ideas para el proyecto',
+        'Investigar sobre machine learning',
+        '2023-08-27'
+    );
+
+-- Insertar notas para el usuario con ID 3
+
+INSERT INTO
+    notas (
+        usuario_id,
+        titulo,
+        descripcion,
+        fecha
+    )
+VALUES (
+        3,
+        'Recetas',
+        'Encontrar receta de pastel de chocolate',
+        '2023-08-26'
+    ), (
+        3,
+        'Gimnasio',
+        'Plan de ejercicios para la semana',
+        '2023-08-25'
+    );
