@@ -1,19 +1,20 @@
 {
-    "name": "drifterdev/mvc",
-    "type": "project",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Controllers\\": "controllers/",
-            "Models\\": "models/",
-            "Views\\": "views/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Mateo Álvarez",
-            "email": "maalvarezmu@unal.edu.co"
-        }
-    ],
-    "require": {}
+  "name": "drifterdev/mvc",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Controllers\\": "controllers/",
+      "Models\\": "models/",
+      "Views\\": "views/",
+      "Config\\": "config/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Mateo Álvarez",
+      "email": "maalvarezmu@unal.edu.co"
+    }
+  ],
+  "require": {}
 }
