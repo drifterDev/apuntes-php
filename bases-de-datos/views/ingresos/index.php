@@ -1,3 +1,9 @@
+<!-- Autor: Mateo Álvarez Murillo
+Fecha de creación: 2023
+
+Este código se proporciona bajo la Licencia MIT.
+Para más información, consulta el archivo LICENSE en la raíz del repositorio. -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +18,7 @@
   <h1 class="text-2xl text-blue-400 font-bold mb-5">Lista de ingresos</h1>
   <main class="flex flex-col items-center">
     <table>
-    <tr>
+      <tr>
         <th class="py-2 pr-5 border-r-2 border-black/70 text-black">Método de pago</th>
         <th class="py-2 px-5 border-r-2 border-black/70 text-black">Tipo de ingreso</th>
         <th class="py-2 px-5 border-r-2 border-black/70 text-black">Fecha</th>
@@ -22,8 +28,8 @@
       <tbody>
         <?php foreach ($result as $r) : ?>
           <tr>
-            <td class="pr-5 border-r-2 border-black/70"><?= $r["metodo_pago"]==1 ? "Tarjeta de credito" : "Cuenta de ahorros" ?></td>
-            <td class="px-5 border-r-2 border-black/70"><?= $r["tipo"]==1 ? "Salario" : "Devolución"?></td>
+            <td class="pr-5 border-r-2 border-black/70"><?= $r["metodo_pago"] == 1 ? "Tarjeta de credito" : "Cuenta de ahorros" ?></td>
+            <td class="px-5 border-r-2 border-black/70"><?= $r["tipo"] == 1 ? "Salario" : "Devolución" ?></td>
             <td class="px-5 border-r-2 border-black/70"><?= $r["fecha"] ?></td>
             <td class="px-5 border-r-2 border-black/70"><?= $r["cantidad"] ?></td>
             <td class="px-5 "><?= $r["descripcion"] ?></td>
@@ -32,10 +38,11 @@
       </tbody>
     </table>
     <div class="flex">
-  <a class="mr-10 block w-48 text-center mt-5 p-2 bg-blue-200 border-2 border-blue-400 rounded" href="/ingresos/create">Agregar nuevo retiro</a>
-    <a class="block w-48 text-center mt-5 p-2 bg-blue-200 border-2 border-blue-400 rounded" href="/retiros">Ir a retiros</a>
-  
-  </div> </main>
+      <a class="mr-10 block w-48 text-center mt-5 p-2 bg-blue-200 border-2 border-blue-400 rounded" href="/ingresos/create">Agregar nuevo retiro</a>
+      <a class="block w-48 text-center mt-5 p-2 bg-blue-200 border-2 border-blue-400 rounded" href="/retiros">Ir a retiros</a>
+
+    </div>
+  </main>
 </body>
 
 </html>

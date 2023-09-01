@@ -1,3 +1,9 @@
+<!-- Autor: Mateo Álvarez Murillo
+Fecha de creación: 2023
+
+Este código se proporciona bajo la Licencia MIT.
+Para más información, consulta el archivo LICENSE en la raíz del repositorio. -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,8 +28,8 @@
       <tbody>
         <?php foreach ($result as $r) : ?>
           <tr>
-            <td class="pr-5 border-r-2 border-black/70"><?= $r["metodo_pago"]==1 ? "Tarjeta de credito" : "Cuenta de ahorros" ?></td>
-            <td class="px-5 border-r-2 border-black/70"><?=$r["tipo"]==1 ? "Retiro" : "Compra"?></td>
+            <td class="pr-5 border-r-2 border-black/70"><?= $r["metodo_pago"] == 1 ? "Tarjeta de credito" : "Cuenta de ahorros" ?></td>
+            <td class="px-5 border-r-2 border-black/70"><?= $r["tipo"] == 1 ? "Retiro" : "Compra" ?></td>
             <td class="px-5 border-r-2 border-black/70"><?= $r["fecha"] ?></td>
             <td class="px-5 border-r-2 border-black/70"><?= $r["cantidad"] ?></td>
             <td class="px-5 "><?= $r["descripcion"] ?></td>
@@ -31,11 +37,11 @@
         <?php endforeach; ?>
       </tbody>
     </table>
-  <div class="flex">
-  <a class="mr-10 block w-48 text-center mt-5 p-2 bg-blue-200 border-2 border-blue-400 rounded" href="/retiros/create">Agregar nuevo retiro</a>
-    <a class="block w-48 text-center mt-5 p-2 bg-blue-200 border-2 border-blue-400 rounded" href="/ingresos">Ir a ingresos</a>
-  
-  </div>  
+    <div class="flex">
+      <a class="mr-10 block w-48 text-center mt-5 p-2 bg-blue-200 border-2 border-blue-400 rounded" href="/retiros/create">Agregar nuevo retiro</a>
+      <a class="block w-48 text-center mt-5 p-2 bg-blue-200 border-2 border-blue-400 rounded" href="/ingresos">Ir a ingresos</a>
+
+    </div>
   </main>
 </body>
 

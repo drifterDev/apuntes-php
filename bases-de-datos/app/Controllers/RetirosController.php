@@ -40,7 +40,7 @@ class RetirosController
    * Guarda un nuevo recurso en la base de datos
    */
   public function store($data)
-  {    
+  {
     $stmt = $this->connection->prepare("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
     (:metodo_pago, :tipo, :fecha, :cantidad, :descripcion);");
     $stmt->bindValue(":metodo_pago", $data["metodo_pago"]);

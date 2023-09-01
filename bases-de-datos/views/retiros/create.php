@@ -1,3 +1,9 @@
+<!-- Autor: Mateo Álvarez Murillo
+Fecha de creación: 2023
+
+Este código se proporciona bajo la Licencia MIT.
+Para más información, consulta el archivo LICENSE en la raíz del repositorio. -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +15,7 @@
 </head>
 
 <body>
-<h1 class="text-2xl text-blue-400 font-bold mb-5">Nuevo retiro</h1>
+  <h1 class="text-2xl text-blue-400 font-bold mb-5">Nuevo retiro</h1>
   <main>
     <form action="/retiros" method="post">
       <div class="mb-3">
@@ -40,12 +46,11 @@
       </div>
       <input type="hidden" name="method" value="post">
       <div class="flex justify-center mt-2">
-      <button class="block w-32 text-center mt-5 p-2 bg-blue-200 border-2 border-blue-400 rounded" type="submit">Guardar</button>
-      <a class="block w-32 ml-10 text-center mt-5 p-2 bg-blue-200 border-2 border-blue-400 rounded" href="/retiros">Regresar</a>
+        <button class="block w-32 text-center mt-5 p-2 bg-blue-200 border-2 border-blue-400 rounded" type="submit">Guardar</button>
+        <a class="block w-32 ml-10 text-center mt-5 p-2 bg-blue-200 border-2 border-blue-400 rounded" href="/retiros">Regresar</a>
       </div>
     </form>
   </main>
 </body>
 
 </html>
-
