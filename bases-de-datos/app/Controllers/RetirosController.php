@@ -22,12 +22,10 @@ class RetirosController
    */
   public function index()
   {
-    $stmt = $this->connection->prepare("SELECT cantidad, descripcion FROM retiros");
+    $stmt = $this->connection->prepare("SELECT * FROM retiros");
     $stmt->execute();
     $result = $stmt->fetchAll();
-    foreach ($result as $r) {
-      echo "Gastaste " . $r["cantidad"] . " COP en: " . $r["descripcion"] . "\n";
-    }
+    require("../views/retiros/index.php");
   }
 
   /**
@@ -35,13 +33,14 @@ class RetirosController
    */
   public function create()
   {
+    require("../views/retiros/create.php");
   }
 
   /**
    * Guarda un nuevo recurso en la base de datos
    */
   public function store($data)
-  {
+  {    
     $stmt = $this->connection->prepare("INSERT INTO retiros (metodo_pago, tipo, fecha, cantidad, descripcion) VALUES
     (:metodo_pago, :tipo, :fecha, :cantidad, :descripcion);");
     $stmt->bindValue(":metodo_pago", $data["metodo_pago"]);
@@ -50,6 +49,7 @@ class RetirosController
     $stmt->bindValue(":cantidad", $data["cantidad"]);
     $stmt->bindValue(":descripcion", $data["descripcion"]);
     $stmt->execute();
+    header("location: retiros");
   }
 
   /**
@@ -59,8 +59,8 @@ class RetirosController
   {
     $stmt = $this->connection->prepare("SELECT * FROM retiros WHERE id=:id");
     $stmt->execute([":id" => $id]);
-    $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-    echo "El registro con id $id dice que te gastaste {$result['amount']} COP en {$result['description']}";
+    $result = [$stmt->fetch(\PDO::FETCH_ASSOC)];
+    require("../views/retiros/index.php");
   }
 
   /**

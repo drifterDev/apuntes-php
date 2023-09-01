@@ -1,5 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bases de datos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+  <h1 class="w-full p-5 bg-blue-100 text-3xl text-blue-500">Aprendiendo MySQL con PHP</h1>
+  <div class="p-5 flex flex-col items-center">
+
 <?php
 
+// Prender el server xampp e ir a  bases.test
 use App\Controllers\IngresosController;
 use App\Controllers\RetirosController;
 use Router\RouterHandler;
@@ -36,3 +50,8 @@ switch ($resource) {
     echo "404 not found";
     break;
 }
+?>
+
+</div>
+</body>
+</html>

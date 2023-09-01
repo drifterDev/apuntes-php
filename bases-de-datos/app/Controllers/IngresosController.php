@@ -25,8 +25,8 @@ class IngresosController
   {
     $stmt = $this->connection->prepare("SELECT * FROM ingresos;");
     $stmt->execute();
-    $results = $stmt->fetchAll();
-    require("../resources/views/ingresos/index.php");
+    $result = $stmt->fetchAll();
+    require("../views/ingresos/index.php");
   }
 
   /**
@@ -34,7 +34,7 @@ class IngresosController
    */
   public function create()
   {
-    require("../resources/views/ingresos/create.php");
+    require("../views/ingresos/create.php");
   }
 
   /**
@@ -61,6 +61,8 @@ class IngresosController
   {
     $stmt = $this->connection->prepare("SELECT * FROM ingresos WHERE id=:id");
     $stmt->execute([":id" => $id]);
+    $result = [$stmt->fetch(\PDO::FETCH_ASSOC)];
+    require("../views/ingresos/index.php");
   }
 
   /**
