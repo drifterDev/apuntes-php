@@ -13,6 +13,7 @@
 
 Para configurar `composer.json`:
 
+* minimum-stability (dev, alpha, beta, RC, stable)
 * autoload.files (funciones, constantes, etc)
 * autoload.classmap (clases)
 * autoload.psr-4 (Se hace enfasis en la carpeta principal)
