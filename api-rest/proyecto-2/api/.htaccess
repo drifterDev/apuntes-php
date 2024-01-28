@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteBase /api/
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^books/?$ index.php?model=book [L]
+RewriteRule ^books/([0-9]+)/?$ index.php?model=book&id=$1 [L]
+
+RewriteRule ^countries/?$ index.php?model=country [L]
+RewriteRule ^countries/([0-9]+)/?$ index.php?model=country&id=$1 [L]
+
+RewriteRule ^authors/?$ index.php?model=author [L]
+RewriteRule ^authors/([0-9]+)/?$ index.php?model=author&id=$1 [L]
+
+Require all granted
