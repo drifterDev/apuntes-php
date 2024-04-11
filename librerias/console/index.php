@@ -8,9 +8,9 @@
 
 namespace Console;
 
-require __DIR__.'\..\vendor\autoload.php';
+require __DIR__ . '\..\vendor\autoload.php';
 
-$books=["El imperio final", "El bestiario de Axlin"];
+$books = ["El imperio final", "El bestiario de Axlin"];
 
 \FB::log("Hola");
 \FB::log($books);

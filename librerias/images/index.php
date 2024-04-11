@@ -10,12 +10,12 @@ namespace Images;
 
 use PHPThumb\GD;
 
-require __DIR__.'\..\vendor\autoload.php';
+require __DIR__ . '\..\vendor\autoload.php';
 
-$fotoOriginal='\foto.jpg';
-$guardarEn='fotoModificada.jpg';
-$thumb=new GD(__DIR__.$fotoOriginal);
-$thumb->resize(50,50);
+$fotoOriginal = '\foto.jpg';
+$guardarEn = 'fotoModificada.jpg';
+$thumb = new GD(__DIR__ . $fotoOriginal);
+$thumb->resize(50, 50);
 $thumb->cropFromCenter(100);
 $thumb->show();
 $thumb->save($guardarEn);

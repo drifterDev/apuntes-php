@@ -7,7 +7,7 @@
 // Para más información, consulta el archivo LICENSE en la raíz del repositorio.
 namespace PDF;
 
-require __DIR__.'\..\vendor\autoload.php';
+require __DIR__ . '\..\vendor\autoload.php';
 
 use Spipu\Html2Pdf\Html2Pdf;
 
@@ -18,7 +18,7 @@ use Spipu\Html2Pdf\Html2Pdf;
 // Recoger la vista para imprimir
 ob_start();
 require_once 'estructura.php';
-$html=ob_get_clean();
+$html = ob_get_clean();
 $html2pdf = new Html2Pdf();
 $html2pdf->writeHTML($html);
 $html2pdf->output();

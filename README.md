@@ -1,4 +1,4 @@
-# Aprendiendo PHP
+# Apuntes PHP
 
 Este repositorio contiene códigos y apuntes de PHP que he creado a lo largo de mi aprendizaje del desarrollo backend, enfocados en el aprendizaje y la práctica de esta tecnología.
 
